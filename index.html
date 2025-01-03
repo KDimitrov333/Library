@@ -7,6 +7,35 @@
     <title>Library</title>
 </head>
 <body>
-    
+    <h1>Your Library</h1>
+    <table id="library">
+        <tr id="header_row">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read</th>
+        </tr>
+    </table>
+    <button id="new_book">New Book</button>
+    <dialog>
+        <button autofocus>Close</button>
+        <p>Fill out the info for new book to add it to your library!</p>
+        <form>
+            <label for="title">Title:</label>
+            <input type="text", id="title", name="title">
+
+            <label for="author">Author:</label>
+            <input type="text", id="author", name="author">
+
+            <label for="pages">Pages:</label>
+            <input type="text", id="pages", name="pages">
+
+            <label for="read">Read:</label>
+            <input type="text", id="read", name="read">
+
+            <button id="submit">Add book</button>
+        </form>
+    </dialog>
+    <script src="logic.js"></script>
 </body>
 </html>

@@ -1,0 +1,152 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center the heading */
+h1 {
+    text-align: center;
+    color: #222;
+}
+
+/* Styling for the library table */
+#library {
+    width: 100%; /* Full-width table */
+    max-width: 800px; /* Limit table width */
+    border-collapse: collapse; /* Remove gaps between borders */
+    margin-top: 20px; /* Add some space above the table */
+    background-color: #ffffff;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
+}
+
+/* Styling for table headers */
+#header_row {
+    background-color: #e0e0e0; /* Light gray background for headers */
+    font-weight: bold;
+}
+
+/* Styling for table cells */
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc; /* Add borders around cells */
+}
+
+/* Add alternating row colors for better readability */
+#library tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#library tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Add hover effect for rows */
+#library tr:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Styling the "New Book" button */
+#new_book {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#new_book:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Styling the dialog box */
+dialog {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    max-width: 400px;
+    width: 90%; /* Make it responsive */
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Dialog form styling */
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Input field styling */
+dialog input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Submit button styling */
+#submit {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#submit:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Close button styling */
+dialog button[autofocus] {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s, transform 0.2s;
+    align-self: flex-end;
+}
+
+dialog button[autofocus]:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Add fade-in animation for dialog */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
