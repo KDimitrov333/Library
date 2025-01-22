@@ -44,30 +44,74 @@ function displayLibrary() {
         readCell.textContent = book.read;
         bookRow.appendChild(readCell);
 
-        const removeBtnCell = document.createElement("td");
+        const updateCell = document.createElement("td");
+        const updateBtn = document.createElement("button");
+        updateBtn.textContent = "Update read status";
+        updateBtn.addEventListener("click", () => {
+            const dialogUpdate = document.createElement("dialog");
+
+            const closeUpdateButton = document.createElement("button");
+            closeUpdateButton.textContent = "Close";
+            closeUpdateButton.addEventListener("click", () => {
+                dialogUpdate.close();
+                dialogUpdate.remove();
+            });
+            dialogUpdate.appendChild(closeUpdateButton);
+
+            const labelUpdate = document.createElement("p");
+            labelUpdate.textContent = "Update your read status for the book!";
+            dialogUpdate.appendChild(labelUpdate);
+
+            const updateForm = document.createElement("form");
+            updateForm.method = "dialog";
+
+            const updateInput = document.createElement("input");
+            updateInput.type = "text";
+            updateInput.placeholder = "Enter new read status";
+            updateForm.appendChild(updateInput);
+
+            const updateConfirmBtn = document.createElement("button");
+            updateConfirmBtn.textContent = "Update";
+            updateConfirmBtn.type = "submit";
+            updateConfirmBtn.addEventListener("click", () => {
+                book.read = updateInput.value;
+                displayLibrary();
+                dialogUpdate.close();
+                dialogUpdate.remove();
+            });
+            updateForm.appendChild(updateConfirmBtn);
+
+            dialogUpdate.appendChild(updateForm);
+
+            document.body.appendChild(dialogUpdate);
+            dialogUpdate.showModal();
+        });
+        updateCell.appendChild(updateBtn);
+
+        bookRow.appendChild(updateCell);
+
+        const removeCell = document.createElement("td");
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove from Library";
         removeBtn.addEventListener("click", () => {
             removeBookFromLibrary(book);
             displayLibrary();
         });
-        removeBtnCell.appendChild(removeBtn);
-        bookRow.appendChild(removeBtnCell);
+        removeCell.appendChild(removeBtn);
+        bookRow.appendChild(removeCell);
 
         table.appendChild(bookRow);
     });
 }
 
 function addBookFromForm(evt) {
-    evt.preventDefault(); // Prevent form submission from refreshing the page
+    evt.preventDefault();
 
-    // Get input values
     const title = titleInput.value;
     const author = authorInput.value;
     const pages = pagesInput.value;
     const read = readInput.value;
 
-    // Validate form inputs (optional)
     if (title === "" || author === "" || pages === "" || read === "") {
         alert("Please fill out all fields!");
         return;
@@ -87,7 +131,7 @@ function addBookFromForm(evt) {
     readInput.value = "";
 
     // Close the dialog
-    dialog.close();
+    dialogNewBook.close();
 }
 
 const table = document.querySelector("#library");
@@ -99,16 +143,16 @@ addBookToLibrary(book1);
 addBookToLibrary(book2);
 displayLibrary();
 
-const dialog = document.querySelector("dialog");
+const dialogNewBook = document.querySelector("#dialogNewBook");
 
 const showButton = document.querySelector("#new_book");
 showButton.addEventListener("click", () => {
-    dialog.showModal();
+    dialogNewBook.showModal();
 });
 
 const closeButton = document.querySelector("dialog button");
 closeButton.addEventListener("click", () => {
-    dialog.close();
+    dialogNewBook.close();
 });
 
 const titleInput = document.querySelector("#title");
