@@ -52,6 +52,7 @@ function displayLibrary() {
 
             const closeUpdateButton = document.createElement("button");
             closeUpdateButton.textContent = "Close";
+            closeUpdateButton.classList.add("close-update-button");
             closeUpdateButton.addEventListener("click", () => {
                 dialogUpdate.close();
                 dialogUpdate.remove();

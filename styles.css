@@ -18,66 +18,39 @@ h1 {
 
 /* Styling for the library table */
 #library {
-    width: 100%; /* Full-width table */
-    max-width: 800px; /* Limit table width */
-    border-collapse: collapse; /* Remove gaps between borders */
-    margin-top: 20px; /* Add some space above the table */
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-top: 20px;
     background-color: #ffffff;
     text-align: left;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for table headers */
+/* Styling for table headers and cells */
 #header_row {
-    background-color: #e0e0e0; /* Light gray background for headers */
+    background-color: #e0e0e0;
     font-weight: bold;
 }
 
-/* Styling for table cells */
 th, td {
     padding: 10px;
-    border: 1px solid #ccc; /* Add borders around cells */
+    border: 1px solid #ccc;
 }
 
-/* Add alternating row colors for better readability */
+/* Alternating row colors for readability */
 #library tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-#library tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-/* Add hover effect for rows */
 #library tr:hover {
     background-color: #f0f0f0;
     cursor: pointer;
 }
 
-/* Styling the "New Book" button */
-#new_book {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-#new_book:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Styling for the Remove button */
-.book_row button {
+/* Styling for buttons */
+button {
     padding: 5px 10px;
-    background-color: #e74c3c; /* Red for remove action */
-    color: white;
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -86,12 +59,39 @@ th, td {
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.book_row button:hover {
-    background-color: #c0392b; /* Darker red on hover */
+/* Specific button styles */
+#new_book, dialog button[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#new_book:hover, dialog button[type="submit"]:hover {
+    background-color: #45a049;
     transform: scale(1.05);
 }
 
-/* Styling the dialog box */
+.book_row button:first-child {
+    background-color: #ffa500;
+    color: white;
+}
+
+.book_row button:first-child:hover {
+    background-color: #e69500;
+    transform: scale(1.05);
+}
+
+.book_row button:last-child {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.book_row button:last-child:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Dialog styling */
 dialog {
     border: none;
     padding: 20px;
@@ -99,12 +99,11 @@ dialog {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     background-color: white;
     max-width: 400px;
-    width: 90%; /* Make it responsive */
+    width: 90%;
     text-align: center;
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Dialog form styling */
 dialog form {
     display: flex;
     flex-direction: column;
@@ -112,7 +111,6 @@ dialog form {
     margin-top: 10px;
 }
 
-/* Input field styling */
 dialog input[type="text"] {
     width: 100%;
     padding: 8px;
@@ -122,42 +120,25 @@ dialog input[type="text"] {
     box-sizing: border-box;
 }
 
-/* Submit button styling */
-#submit {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-#submit:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Close button styling */
-dialog button[autofocus] {
+/* Dialog close button */
+dialog button[autofocus], dialog button.close, dialog .close-update-button {
     background-color: #f44336;
     color: white;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 14px;
+    cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
-    align-self: flex-end;
+    margin-top: 10px;
 }
 
-dialog button[autofocus]:hover {
+dialog button[autofocus]:hover, dialog button.close:hover, dialog .close-update-button:hover {
     background-color: #d32f2f;
     transform: scale(1.05);
 }
 
-/* Add fade-in animation for dialog */
+/* Fade-in animation for dialog */
 @keyframes fadeIn {
     from {
         opacity: 0;
