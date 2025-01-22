@@ -73,6 +73,24 @@ th, td {
     transform: scale(1.05);
 }
 
+/* Styling for the Remove button */
+.book_row button {
+    padding: 5px 10px;
+    background-color: #e74c3c; /* Red for remove action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.book_row button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: scale(1.05);
+}
+
 /* Styling the dialog box */
 dialog {
     border: none;

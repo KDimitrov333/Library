@@ -14,6 +14,11 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function removeBookFromLibrary(book) {
+    const index = myLibrary.indexOf(book);
+    myLibrary.splice(index, 1);
+}
+
 function displayLibrary() {
     const table = document.querySelector("#library");
     const existingRows = document.querySelectorAll(".book_row");
@@ -38,6 +43,16 @@ function displayLibrary() {
         const readCell = document.createElement("td");
         readCell.textContent = book.read;
         bookRow.appendChild(readCell);
+
+        const removeBtnCell = document.createElement("td");
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove from Library";
+        removeBtn.addEventListener("click", () => {
+            removeBookFromLibrary(book);
+            displayLibrary();
+        });
+        removeBtnCell.appendChild(removeBtn);
+        bookRow.appendChild(removeBtnCell);
 
         table.appendChild(bookRow);
     });
